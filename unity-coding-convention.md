@@ -20,7 +20,6 @@ This is a coding convention for the C# language targeting Unity platform. When t
 - [Spacing](#spacing)
   + [Indentation](#indentation)
   + [Line Length](#line-length)
-  + [Vertical Spacing](#vertical-spacing)
 - [Brace Style](#brace-style)
 - [Switch Statements](#switch-statements)
 - [Language](#language)
