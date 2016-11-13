@@ -13,6 +13,10 @@ Tips, tricks and best practices for working with Unity.
 ## Optimization
 * Use object pool
 
+## Editor Setting
+* `Edit > Project Settings > Editor`
+    * `Asset Serialization` > `Force Text`
+
 # References
 * http://www.glenstevens.ca/unity3d-best-practices/#Process
 * http://devmag.org.za/2012/07/12/50-tips-for-working-with-unity-best-practices/
