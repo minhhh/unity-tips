@@ -8,14 +8,14 @@ Tips, tricks and best practices for working with Unity.
 
 **Consider saving levels in data instead of in scenes**. If you have many levels, it makes senses to have a standard text format for those level data. You might want to use external level tools or create your own in Unity. The advantages are:
 
-    * It makes it unnecessary to re-setup each scene.
-    * It makes it easier to merge scenes
-    * It makes it easier to change all levels according to specific rules.
+* It makes it unnecessary to re-setup each scene.
+* It makes it easier to merge scenes
+* It makes it easier to change all levels according to specific rules.
 
 **Consider writing generic custom inspector code**. To write custom inspectors is fairly straightforward, but Unity’s system has many drawbacks:
 
-    * It does not support taking advantage of inheritance.
-    * It does not let you define inspector components on a field-type level, only a class-type level. For instance, if every game object has a field of type SomeCoolType, which you want rendered differently in the inspector, you have to write inspectors for all your classes.
+* It does not support taking advantage of inheritance.
+* It does not let you define inspector components on a field-type level, only a class-type level. For instance, if every game object has a field of type SomeCoolType, which you want rendered differently in the inspector, you have to write inspectors for all your classes.
 
 ## Scene Organization
 **Use named empty game objects as scene folders**. Carefully organize your scenes to make it easy to find objects.
