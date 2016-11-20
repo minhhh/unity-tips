@@ -5,8 +5,10 @@ Tips, tricks and best practices for working with Unity.
 **Avoid branching assets**. There should always only ever be one version of any asset. If you absolutely have to branch a prefab, scene, or mesh, follow a process that makes it very clear which is the right version. The "wrong" branch should have a funky name, for example, use a double underscore prefix: `__MainScene_Backup`.
 
 <br/>
+
 **Each team member should have a second copy of the project checked out for testing** if you are using version control. After changes, this second copy, the clean copy, should be updated and tested. No-one should make any changes to their clean copies. This is especially useful to catch missing assets.
 
+<br/>
 
 **Consider saving levels in data instead of in scenes**. If you have many levels, it makes senses to have a standard text format for those level data. You might want to use external level tools or create your own in Unity. The advantages are:
 
@@ -14,6 +16,7 @@ Tips, tricks and best practices for working with Unity.
 * It makes it easier to merge scenes
 * It makes it easier to change all levels according to specific rules.
 
+<br/>
 
 **Consider writing generic custom inspector code**. To write custom inspectors is fairly straightforward, but Unity’s system has many drawbacks:
 
@@ -23,6 +26,10 @@ Tips, tricks and best practices for working with Unity.
 
 ## Scene Organization
 **Use named empty game objects as scene folders**. Carefully organize your scenes to make it easy to find objects.
+
+<br/>
+
+**Put maintenance prefabs and folders (empty game objects) at 0 0 0**. If a transform is not specifically used to position an object, it should be at the origin. That way, there is less danger of running into problems with local and world space, and code is generally simpler.
 
 
 
