@@ -18,6 +18,7 @@ Tips, tricks and best practices for working with Unity.
     * It does not let you define inspector components on a field-type level, only a class-type level. For instance, if every game object has a field of type SomeCoolType, which you want rendered differently in the inspector, you have to write inspectors for all your classes.
 
 ## Scene Organization
+**Use named empty game objects as scene folders**. Carefully organize your scenes to make it easy to find objects.
 
 
 
