@@ -31,6 +31,15 @@ Tips, tricks and best practices for working with Unity.
 
 **Put maintenance prefabs and folders (empty game objects) at 0 0 0**. If a transform is not specifically used to position an object, it should be at the origin. That way, there is less danger of running into problems with local and world space, and code is generally simpler.
 
+<br/>
+
+**Minimise using offsets for GUI components**. Offsets should always be used to layout components in their parent component only; they should not rely on the positioning of their grandparents. Offsets should not cancel each other out to display correctly. It is basically to prevent this kind of thing:
+
+<br/>
+
+**Put your world floor at y = 0**. This makes it easier to put objects on the floor, and treat the world as a 2D space (when appropriate) for game logic, AI, and physics.
+
+<br/>
 
 
 ## Optimization
