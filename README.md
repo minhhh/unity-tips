@@ -41,6 +41,18 @@ Tips, tricks and best practices for working with Unity.
 
 <br/>
 
+**Make the game runnable from every scene**. This drastically reduces testing time. To make all scenes runnable you need to do two things:
+
+* First, provide a way to mock up any data that is required from previously loaded scenes if it is not available.
+* Second, spawn objects that must persist between scene loads with the following idiom:
+
+    myObject = FindMyObjectInScene();
+
+    if (myObjet == null)
+    {
+    myObject = SpawnMyObject();
+    }
+
 
 ## Optimization
 **Use object pool**
