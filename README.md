@@ -46,12 +46,14 @@ Tips, tricks and best practices for working with Unity.
 * First, provide a way to mock up any data that is required from previously loaded scenes if it is not available.
 * Second, spawn objects that must persist between scene loads with the following idiom:
 
-    myObject = FindMyObjectInScene();
+```
+myObject = FindMyObjectInScene();
 
-    if (myObjet == null)
-    {
+if (myObjet == null)
+{
     myObject = SpawnMyObject();
-    }
+}
+```
 
 
 ## Optimization
