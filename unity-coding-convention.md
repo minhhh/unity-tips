@@ -244,8 +244,8 @@ int result = Calculate (
 
 int result =
     Calculate (
-        firstArgument,
-        secondArgument);
+    firstArgument,
+    secondArgument);
 ```
 
 ### Line Length
