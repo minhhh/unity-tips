@@ -95,6 +95,49 @@ Gradients for shader testing: black to white, red to green, red to blue, green t
 
 If you have too many enemy types, specialisation should still not be made in instances in the editor. One alternative is to do it procedurally, or using a central file / prefab for all enemies. A single drop down could be used to differentiate enemies, or an algorithm based on enemy position or player progress.
 
+<br/>
+
+**Link prefabs to prefabs; do not link instances to instances.** Links to prefabs are maintained when dropping a prefab into a scene; links to instances are not. Linking to prefabs whenever possible reduces scene setup, and reduce the need to change scenes.
+
+<br/>
+
+**As far as possible, establish links between instances automatically.** If you need to link instances, establish the links programmatically. For example, the player prefab can register itself with the GameManager when it starts, or the GameManager can find the Player prefab instance when it starts.
+
+<br/>
+
+**Don’t put meshes at the roots of prefabs if you want to add other scripts.** When you make the prefab from a mesh, first parent the mesh to an empty game object, and make that the root. Put scripts on the root, not on the mesh node. That way it is much easier to replace the mesh with another mesh without loosing any values that you set up in the inspector.
+
+<br/>
+
+**Use linked prefabs as an alternative to nested prefabs.** Unity does not support nested prefabs, and existing third-party solutions can be dangerous when working in a team because the relationship between nested prefabs is not obvious.
+
+<br/>
+
+**Use safe processes to branch prefabs**. The explanation use the Player prefab as an example.
+
+Make a risky change to the Player prefab is as follows:
+
+1. Duplicate the Player prefab.
+1. Rename the duplicate to `__Player_Backup`.
+1. Make changes to the Player prefab.
+1. If everything works, delete `__Player_Backup`.
+
+Do not name the duplicate `Player_New`, and make changes to it!
+
+Some situations are more complicated. For example, a certain change may involve two people, and following the above process may break the working scene for everyone until person two finished. If it is quick enough, still follow the process above. For changes that take longer, the following process can be followed:
+
+1. Person 1:
+    1. Duplicate the Player prefab.
+    1. Rename it to `__Player_WithNewFeature` or `__Player_ForPerson2`.
+    1. Make changes on the duplicate, and commit/give to Person 2.
+1. Person 2:
+    1. Make changes to new prefab.
+    1. Duplicate Player prefab, and call it `__Player_Backup`.
+    1. Drag an instance of `__Player_WithNewFeature` into the scene.
+    1. Drag the instance onto the original Player prefab.
+    1. If everything works, delete `__Player_Backup` and `__Player_WithNewFeature`.
+
+
 ## Optimization
 **Use object pool**
 
