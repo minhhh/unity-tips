@@ -137,6 +137,8 @@ Some situations are more complicated. For example, a certain change may involve 
     1. Drag the instance onto the original Player prefab.
     1. If everything works, delete `__Player_Backup` and `__Player_WithNewFeature`.
 
+## Time
+**Maintain your own time class to make pausing easier**. Wrap `Time.DeltaTime` and `Time.TimeSinceLevelLoad` to account for pausing and time scale. It requires discipline to use it, but will make things a lot easier, especially when running things of different clocks (such as interface animations and game animations).
 
 ## Optimization
 **Use object pool**
