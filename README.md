@@ -137,6 +137,16 @@ Some situations are more complicated. For example, a certain change may involve 
     1. Drag the instance onto the original Player prefab.
     1. If everything works, delete `__Player_Backup` and `__Player_WithNewFeature`.
 
+## Extensions and MonoBehaviourBase
+**Extend your own base mono behaviour, and derive all your components from it.** This allows you to implement some general functionality, such as type safe Invoke, and more complicated Invokes (such as random, etc.).
+
+## Idioms
+**Avoid using different idioms to do the same thing**. In many cases there are more than one idiomatic way to do things. In such cases, choose one to use throughout the project. Here is why:
+
+* Some idioms don’t work well together. Using one idiom well forces design in one direction that is not suitable for another idiom.
+* Using the same idiom throughout makes it easier for team members to understand what is going on. It makes structure and code easier to understand. It makes mistakes harder to make.
+
+
 ## Time
 **Maintain your own time class to make pausing easier**. Wrap `Time.DeltaTime` and `Time.TimeSinceLevelLoad` to account for pausing and time scale. It requires discipline to use it, but will make things a lot easier, especially when running things of different clocks (such as interface animations and game animations).
 
