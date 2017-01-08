@@ -140,6 +140,10 @@ Some situations are more complicated. For example, a certain change may involve 
 ## Extensions and MonoBehaviourBase
 **Extend your own base mono behaviour, and derive all your components from it.** This allows you to implement some general functionality, such as type safe Invoke, and more complicated Invokes (such as random, etc.).
 
+<br/>
+
+**Use extensions to make syntax more convenient.**
+
 ## Idioms
 **Avoid using different idioms to do the same thing**. In many cases there are more than one idiomatic way to do things. In such cases, choose one to use throughout the project. Here is why:
 
@@ -149,6 +153,186 @@ Some situations are more complicated. For example, a certain change may involve 
 
 ## Time
 **Maintain your own time class to make pausing easier**. Wrap `Time.DeltaTime` and `Time.TimeSinceLevelLoad` to account for pausing and time scale. It requires discipline to use it, but will make things a lot easier, especially when running things of different clocks (such as interface animations and game animations).
+
+
+## Spawning Objects
+**Don’t let spawned objects clutter your hierarchy when the game runs** Set their parents to a scene object to make it easier to find stuff when the game is running. You could use a empty game object, or even a singleton with no behaviour to make it easier to access from code.
+
+## Class Design
+**Use singletons for convenience**
+
+<br/>
+
+**For components, never make variables public that should not be tweaked in the inspector.** Otherwise it will be tweaked by a designer, especially if it is not clear what it does. If it seems unavoidable, use [HideInInspector] tag. Don’t set things to public to make them appear in the inspector. Only properties or members that you want to alter from outside your class should be public. Instead use the [SerializeField] (@SerializeField) attribute to make variables show in the inspector. If you have something that needs to be public but not designer editor then use [HideInInspector] (@HideInInspector). On the same note, don’t make things public just for the fun of it. The more public functions and member variables you have in a class, the more stuff shows up in the drop-down list when you try to access it. Keep it clean.
+
+<br/>
+
+**Separate interface from game logic. This is essentially the MVC pattern.**
+
+Any input controller should only give commands to the appropriate components to let them know the controller has been invoked. For example in controller logic, the controller could decide which commands to give based on the player state. But this is bad (for example, it will lead to duplicate logic if more controllers are added). Instead, the Player object should be notified of the intent of moving forward, and then based on the current state (slowed or stunned, for example) set the speed and update the player facing direction. Controllers should only do things that relate to their own state (the controller does not change state if the player changes state; therefore, the controller should not know of the player state at all). Another example is the changing of weapons. The right way to do it is with a method on PlayerSwitchWeapon(Weapon newWeapon), which the GUI can call. The GUI should not manipulate transforms and parents and all that stuff.
+
+Any interface component should only maintain data and do processing related to it’s own state. For example, to display a map, the GUI could compute what to display based on the player’s movements. However, this is game state data, and does not belong in the GUI. The GUI should merely display game state data, which should be maintained elsewhere. The map data should be maintained elsewhere (in the GameManager, for example).
+
+Gameplay objects should know virtually nothing of the GUI. The one exception is the pause behaviour, which is may be controlled globally through Time.timeScale (which is not a good idea as well… see ). Gameplay objects should know if the game is paused. But that is all. Therefore, no links to GUI components from gameplay objects.
+
+In general, if you delete all the GUI classes, the game should still compile.
+
+You should also be able to re-implement the GUI and input without needing to write any new game logic.
+
+<br/>
+
+**Separate state and bookkeeping.** Bookkeeping variables are used for speed or convenience, and can be recovered from the state. By separating these, you make it easier to
+
+* save the game state, and
+* debug the game state.
+
+One way to do it is to define a SaveData class for each game logic class. The
+
+```
+[Serializable]
+PlayerSaveData
+{
+   public float health; //public for serialisation, not exposed in inspector
+}
+
+Player
+{
+   //... bookkeeping variables
+
+   //Don’t expose state in inspector. State is not tweakable.
+   private PlayerSaveData playerSaveData;
+}
+```
+
+<br/>
+
+**Don’t use strings for anything other than displayed text.** In particular, do not use strings for identifying objects or prefabs etc. One unfortunate exception is animations, which generally are accessed with their string names.
+
+<br/>
+
+**Avoid using public index-coupled arrays.** For instance, do not define an array of weapons, an array of bullets, and an array of particles , so that your code looks like this:
+
+```
+public void SelectWeapon(int index)
+{
+   currentWeaponIndex = index;
+   Player.SwitchWeapon(weapons[currentWeapon]);
+}
+
+public void Shoot()
+{
+   Fire(bullets[currentWeapon]);
+   FireParticles(particles[currentWeapon]);
+}
+```
+
+The problem for this is not so much in the code, but rather setting it up in the inspector without making mistakes.
+
+Rather, define a class that encapsulates the three variables, and make an array of that:
+
+```
+[Serializable]
+public class Weapon
+{
+   public GameObject prefab;
+   public ParticleSystem particles;
+   public Bullet bullet;
+}
+```
+
+The code looks neater, but most importantly, it is harder to make mistakes in setting up the data in the inspector.
+
+<br/>
+
+**Avoid using arrays for structure other than sequences.** For example, a player may have three types of attacks. Each uses the current weapon, but generates different bullets and different behaviour.
+
+You may be tempted to dump the three bullets in an array, and then use this kind of logic:
+
+```
+public void FireAttack()
+{
+   /// behaviour
+   Fire(bullets[0]);
+}
+
+public void IceAttack()
+{
+   /// behaviour
+   Fire(bullets[1]);
+}
+
+public void WindAttack()
+{
+   /// behaviour
+   Fire(bullets[2]);
+}
+```
+
+Enums can make things look better in code
+
+```
+public void WindAttack()
+{
+   /// behaviour
+   Fire(bullets[WeaponType.Wind]);
+}
+```
+
+but not in the inspector.
+
+It’s better to use separate variables so that the names help show which content to put in. Use a class to make it neat.
+
+```
+[Serializable]
+public class Bullets
+{
+   public Bullet FireBullet;
+   public Bullet IceBullet;
+   public Bullet WindBullet;
+}
+```
+
+This assumes there is no other Fire, Ice and Wind data.
+
+<br/>
+
+**Group data in serializable classes to make things neater in the inspector.** Some entities may have dozens of tweakables. It can become a nightmare to find the right variable in the inspector. To make things easier, follow these steps:
+
+* Define separate classes for groups of variables. Make them public and serializable.
+* In the primary class, define public variables of each type defined as above.
+* Do not initialize these variables in Awake or Start; since they are serializable, Unity will take care of that.
+* You can specify defaults as before by assigning values in the definition;
+
+This will group variables in collapsible units in the inspector, which is easier to manage.
+
+```
+[Serializable]
+public class MovementProperties //Not a MonoBehaviour!
+{
+   public float movementSpeed;
+   public float turnSpeed = 1; //default provided
+}
+
+public class HealthProperties //Not a MonoBehaviour!
+{
+   public float maxHealth;
+   public float regenerationRate;
+}
+
+public class Player : MonoBehaviour
+{
+   public MovementProperties movementProeprties;
+   public HealthPorperties healthProeprties;
+}
+```
+
+<br/>
+
+**Tag/Layer**: One of the first things you should do is to create two static classes with your Tags and Classes so you don’t mess things up with upper/lower case problematic or use stuff like that from memory.
+
+<br/>
+
+**Tag/Layer**: When checking a tag use the method CompareTag on Component or GameObject.
 
 ## Optimization
 **Use object pool**
