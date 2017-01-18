@@ -1,5 +1,10 @@
 # UNITY TIPS, TRICKS AND BEST PRACTICES
+
 Tips, tricks and best practices for working with Unity.
+
+## Good references of Unity best practices 
+* [Unity C# Coding Convention](https://github.com/minhhh/unity-tips/blob/master/unity-coding-convention.md)
+
 
 ## Process
 **Avoid branching assets**. There should always only ever be one version of any asset. If you absolutely have to branch a prefab, scene, or mesh, follow a process that makes it very clear which is the right version. The "wrong" branch should have a funky name, for example, use a double underscore prefix: `__MainScene_Backup`.
