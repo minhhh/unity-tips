@@ -339,6 +339,15 @@ public class Player : MonoBehaviour
 
 **Tag/Layer**: When checking a tag use the method CompareTag on Component or GameObject.
 
+## Text
+**If you have a lot of story text, put it in a file**. Don’t put it in fields for editing in the inspector. Make it easy to change without having to open the Unity editor, and especially without having to save the scene.
+
+<br/>
+
+**If you plan to localise, separate all your strings to one location**. There are many ways to do this. One way is to define a Text class with a public string field for each string, with defaults set to English, for example. Other languages subclass this and re-initialize the fields with the language equivalents.
+
+More sophisticated techniques (appropriate when the body of text is large and / or the number of languages is high) will read in a spread sheet and provide logic for selecting the right string based on the chosen language.
+
 ## Optimization
 **Use object pool**
 
