@@ -2,9 +2,8 @@
 
 Tips, tricks and best practices for working with Unity.
 
-## Good references of Unity best practices 
+## Good references of Unity best practices
 * [Unity C# Coding Convention](https://github.com/minhhh/unity-tips/blob/master/unity-coding-convention.md)
-
 
 ## Process
 **Avoid branching assets**. There should always only ever be one version of any asset. If you absolutely have to branch a prefab, scene, or mesh, follow a process that makes it very clear which is the right version. The "wrong" branch should have a funky name, for example, use a double underscore prefix: `__MainScene_Backup`.
@@ -354,6 +353,9 @@ More sophisticated techniques (appropriate when the body of text is large and / 
 ## Editor Setting
 * `Edit > Project Settings > Editor`
     * `Asset Serialization` > `Force Text`
+
+## Use Command line with Editor code
+* [Better Unity workflow with command line](http://minhhh.github.io/posts/better-unity-workflow-with-command-line)
 
 
 # REFERENCES
