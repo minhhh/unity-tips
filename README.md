@@ -4,6 +4,8 @@ Tips, tricks and best practices for working with Unity.
 
 ## Good references of Unity best practices
 * [Unity C# Coding Convention](https://github.com/minhhh/unity-tips/blob/master/unity-coding-convention.md)
+* [Better Unity workflow with command line](http://minhhh.github.io/posts/better-unity-workflow-with-command-line)
+* [Best Practices in Persisting Player Data on Mobile](http://minhhh.github.io/posts/best-practices-in-persisting-player-data-on-mobile)
 
 ## Process
 **Avoid branching assets**. There should always only ever be one version of any asset. If you absolutely have to branch a prefab, scene, or mesh, follow a process that makes it very clear which is the right version. The "wrong" branch should have a funky name, for example, use a double underscore prefix: `__MainScene_Backup`.
@@ -347,6 +349,46 @@ public class Player : MonoBehaviour
 
 More sophisticated techniques (appropriate when the body of text is large and / or the number of languages is high) will read in a spread sheet and provide logic for selecting the right string based on the chosen language.
 
+## Testing and Debugging
+ **Implement a graphical logger to debug physics, animation, and AI**. This can make debugging considerably faster. See [here](http://devmag.org.za/2011/01/25/make-your-logs-interactive-and-squash-bugs-faster/)
+
+<br/>
+
+**Implement your own FPS counter**. Yup. No one knows what Unity’s FPS counter really measures, but it is not frame rate. Implement your own so that the number can correspond with intuition and visual inspection.
+
+<br/>
+
+**Implement shortcuts for taking screen shots**. Many bugs are visual, and are much easier to report when you can take a picture. The ideal system should maintain a counter in PlayerPrefs so that successive screenshots are not overwritten. The screenshots should be saved outside the project folder to avoid people from accidentally committing them to the repository.
+
+<br/>
+
+**Implement shortcuts for printing the player’s world position**. This makes it easy to report the position of bugs that occur in specific places in the world, which in turns makes it easier to debug.
+
+<br/>
+
+**Implement debug options for making testing easier**. Some examples:
+
+* Unlock all items.
+* Disable enemies.
+* Disable GUI.
+* Make player invincible.
+* Disable all gameplay.
+
+<br/>
+
+**For teams that are small enough, make a prefab for each team member with debug options**. Put a user identifier in a file that is not committed, and is read when the game is run. This why:
+
+* Team members do not commit their debug options by accident and affect everyone.
+* Changing debug options don’t change the scene.
+
+<br/>
+
+**Maintain a scene with all gameplay elements**. For instance, a scene with all enemies, all objects you can interact with, etc. This makes it easy to test functionality without having to play too long.
+
+<br/>
+
+**Define constants for debug shortcut keys, and keep them in one place**. Debug keys are not normally (or conveniently) processed in a single location like the rest of the game input. To avoid shortcut key collisions, define constants in a central place. An alternative is to process all keys in one place regardless of whether it is a debug function or not. (The downside is that this class may need extra references to objects just for this).
+
 ## Optimization
 **Use object pool**
 
@@ -354,8 +396,7 @@ More sophisticated techniques (appropriate when the body of text is large and / 
 * `Edit > Project Settings > Editor`
     * `Asset Serialization` > `Force Text`
 
-## Use Command line with Editor code
-* [Better Unity workflow with command line](http://minhhh.github.io/posts/better-unity-workflow-with-command-line)
+
 
 
 # REFERENCES
