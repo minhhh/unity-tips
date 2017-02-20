@@ -389,6 +389,19 @@ More sophisticated techniques (appropriate when the body of text is large and / 
 
 **Define constants for debug shortcut keys, and keep them in one place**. Debug keys are not normally (or conveniently) processed in a single location like the rest of the game input. To avoid shortcut key collisions, define constants in a central place. An alternative is to process all keys in one place regardless of whether it is a debug function or not. (The downside is that this class may need extra references to objects just for this).
 
+## Documentation
+**Document your setup**. Most documentation should be in the code, but certain things should be documented outside code. Making designers sift through code for setup is time-wasting. Documented setups improved efficiency (if the documents are current).
+
+Document the following:
+
+Layer uses (for collision, culling, and raycasting – essentially, what should be in what layer).
+Tag uses.
+GUI depths for layers (what should display over what).
+Scene setup.
+Idiom preferences.
+Prefab structure.
+Animation layers.
+
 ## Optimization
 **Use object pool**
 
