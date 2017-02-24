@@ -6,6 +6,7 @@ Tips, tricks and best practices for working with Unity.
 * [Unity C# Coding Convention](https://github.com/minhhh/unity-tips/blob/master/unity-coding-convention.md)
 * [Better Unity workflow with command line](http://minhhh.github.io/posts/better-unity-workflow-with-command-line)
 * [Best Practices in Persisting Player Data on Mobile](http://minhhh.github.io/posts/best-practices-in-persisting-player-data-on-mobile)
+* [Game backends](http://minhhh.github.io/posts/game-backends)
 
 ## Process
 **Avoid branching assets**. There should always only ever be one version of any asset. If you absolutely have to branch a prefab, scene, or mesh, follow a process that makes it very clear which is the right version. The "wrong" branch should have a funky name, for example, use a double underscore prefix: `__MainScene_Backup`.
@@ -394,16 +395,16 @@ More sophisticated techniques (appropriate when the body of text is large and / 
 
 Document the following:
 
-Layer uses (for collision, culling, and raycasting – essentially, what should be in what layer).
-Tag uses.
-GUI depths for layers (what should display over what).
-Scene setup.
-Idiom preferences.
-Prefab structure.
-Animation layers.
+* Layer uses (for collision, culling, and raycasting – essentially, what should be in what layer).
+* Tag uses.
+* GUI depths for layers (what should display over what).
+* Scene setup.
+* Idiom preferences.
+* Prefab structure.
+* Animation layers.
 
 ## Optimization
-**Use object pool**
+**Use object pool** as described [here](http://minhhh.github.io/posts/unity-object-pooling)
 
 ## Editor Setting
 * `Edit > Project Settings > Editor`
