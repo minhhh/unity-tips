@@ -166,7 +166,7 @@ Some situations are more complicated. For example, a certain change may involve 
 **Don’t let spawned objects clutter your hierarchy when the game runs** Set their parents to a scene object to make it easier to find stuff when the game is running. You could use a empty game object, or even a singleton with no behaviour to make it easier to access from code.
 
 ## Class Design
-**Use singletons for convenience**
+**Use singletons for convenience** See [Unity Singleton](http://minhhh.github.io/posts/unity-singleton) for a detailed discussion.
 
 <br/>
 
