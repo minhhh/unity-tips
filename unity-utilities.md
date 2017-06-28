@@ -5,6 +5,9 @@ This repo contains some common utilities and helpers for Unity. It will also lis
 ## General tips
 * [Unity-GUITips](https://github.com/kimsama/Unity-GUITips)
 
+## LINQ to GameObject for Unity
+* [LINQ-to-GameObject-for-Unity](https://github.com/neuecc/LINQ-to-GameObject-for-Unity) LINQ to GameObject is GameObject extensions for Unity that allows traverse hierarchy and append GameObject
+
 ## Sorting Layer Setter
 * [unity-sortinglayer-setter](https://github.com/minhhh/unity-sortinglayer-setter)
 
