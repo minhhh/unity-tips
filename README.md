@@ -411,12 +411,17 @@ Document the following:
     * `Asset Serialization` > `Force Text`
 
 ## Tips Using Editors
-**Remove prefab links from scene object** Sometime you have an existing prefab in the scene and you want to remove the links from the scene objects to that prefab without deleting the prefab (because the prefab is still being used somewhere else). You can achieve this like so
+**Remove prefab links from scene object** Sometimes you have an existing prefab in the scene and you want to remove the links from the scene objects to that prefab without deleting the prefab (because the prefab is still being used somewhere else). You can achieve this like so
 
 * Create a new prefab
 * Drag the scene object to the new prefab. Now the scene object is linked to the new prefab, not the previous one. Then you delete the new prefab. The scene object will turn red
 * Create an empty object inside the scene object, it will make the scene object normal again. Then delete the empty object. Now your scene object is not linked to any prefab anymore.
 
+**Setting 2 object to the same position** Sometimes you have 2 GameObject nested inside several levels and you want them to have exactly the same position. You can achieve that by:
+
+* Drag 2 objects to root level
+* Use `Copy Component` to copy the transform of one object to the other
+* Drag them back to their appropriate nested level
 
 
 
