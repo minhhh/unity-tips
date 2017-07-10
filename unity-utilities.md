@@ -1,6 +1,6 @@
 # UNITY UTILITIES
 
-This repo contains some common utilities and helpers for Unity. It will also list best Unity plugins, both free and commercial, for various tasks in Unity.
+This guide contains some common utilities and helpers for Unity. It will also list best Unity plugins, both free and commercial, for various tasks in Unity.
 
 ## General tips
 * [Unity-GUITips](https://github.com/kimsama/Unity-GUITips)
@@ -68,9 +68,10 @@ This repo contains some common utilities and helpers for Unity. It will also lis
 * [unity-particle-scaler](https://github.com/minhhh/unity-particle-scaler)
 
 ## JSON
+* [MiniJSON](https://gist.github.com/darktable/1411710) Decodes and encodes simple JSON strings. Used by games such as [Othellonia](http://othellonia.net/). Also used in a lot of [Unity projects](https://github.com/search?p=1&q=unity+minijson&ref=searchresults&type=Code&utf8=%E2%9C%93)
+
 * [SimpleJSON](http://wiki.unity3d.com/index.php/SimpleJSON) easy to use JSON parser and builder. Used in a lot of [Unity projects](https://github.com/search?p=1&q=unity+simplejson&type=Code&utf8=%E2%9C%93)
 
-* [MiniJSON](https://gist.github.com/darktable/1411710) Decodes and encodes simple JSON strings. Used by games such as [Othellonia](http://othellonia.net/). Also used in a lot of [Unity projects](https://github.com/search?p=1&q=unity+minijson&ref=searchresults&type=Code&utf8=%E2%9C%93)
 
 ## Text
 * [Text Mesh Pro](https://www.assetstore.unity3d.com/en/#!/content/17662) is simply the best text mesh plugin out there
@@ -107,6 +108,13 @@ This repo contains some common utilities and helpers for Unity. It will also lis
 
 ## Touch Gesture
 * [TouchKit](https://github.com/prime31/TouchKit)
+
+## Missing script and Reference Finder
+* [MissingScriptFinder](https://github.com/minhhh/UBootstrap.Core/blob/master/Assets/UBootstrap.Core/Plugins/EditorExtension/Editor/MissingScriptFinder.cs) helps you find missing scripts in scene due to refactoring
+
+* [AssetReferenceFinder](https://github.com/minhhh/UBootstrap.Core/blob/master/Assets/UBootstrap.Core/Plugins/EditorExtension/Editor/AssetReferencerFinder.cs) helps you find references to your assets in other assets. This is very useful for checking if you're using assets correclty.
+
+
 
 ## Base game
 * [Good Unity base game structure](https://github.com/kwnetzwelt/ugb-source)
