@@ -123,6 +123,7 @@ This guide contains some common utilities and helpers for Unity. It will also li
 * [zeef](https://unity3d-open-source.zeef.com/taras.leskiv)
 * [UnityToolbag](https://github.com/nickgravelyn/UnityToolbag)
 * [prime31](https://github.com/prime31/)
+* [rb-unity-tools](https://github.com/redbluegames/rb-unity-tools/)
 * [Unity-Helpers](https://github.com/mikecann/Unity-Helpers)
 * [Unity Rect Extensions](https://github.com/nitreo/unity-rect-extensions)
 * [Unity Tips and Tricks Grab Bag](https://www.youtube.com/watch?v=qSQRZAxXlqw)
