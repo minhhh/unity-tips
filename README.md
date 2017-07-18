@@ -106,6 +106,9 @@ If you have too many enemy types, specialisation should still not be made in ins
 
 **Link prefabs to prefabs; do not link instances to instances.** Links to prefabs are maintained when dropping a prefab into a scene; links to instances are not. Linking to prefabs whenever possible reduces scene setup, and reduce the need to change scenes.
 
+An exception to this rule is UI setup. The link between Controllers and its UI can be instance to instance since it only occurs in 1 scene. Also, try to avoid reusing a specific controller between scenes.
+
+
 <br/>
 
 **As far as possible, establish links between instances automatically.** If you need to link instances, establish the links programmatically. For example, the player prefab can register itself with the GameManager when it starts, or the GameManager can find the Player prefab instance when it starts.
