@@ -100,7 +100,7 @@ Gradients for shader testing: black to white, red to green, red to blue, green t
 * make changes to each type in one place
 * make changes without having to change the scene.
 
-If you have too many enemy types, specialisation should still not be made in instances in the editor. One alternative is to do it procedurally, or using a central file / prefab for all enemies. A single drop down could be used to differentiate enemies, or an algorithm based on enemy position or player progress.
+If you use the same prefab in different places with different parameters, it's very easy to click `Apply` and change the value of instances you don't want to. If you have too many enemy types, specialisation should still not be made in instances in the editor. One alternative is to do it procedurally, or using a central file / prefab for all enemies. A single drop down could be used to differentiate enemies, or an algorithm based on enemy position or player progress. For example, you spawn enemies using code, then set its parameters using master data
 
 <br/>
 
