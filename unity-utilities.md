@@ -114,6 +114,8 @@ This guide contains some common utilities and helpers for Unity. It will also li
 
 * [AssetReferenceFinder](https://github.com/minhhh/UBootstrap.Core/blob/master/Assets/UBootstrap.Core/Plugins/EditorExtension/Editor/AssetReferencerFinder.cs) helps you find references to your assets in other assets. This is very useful for checking if you're using assets correclty.
 
+## PlayerPrefs
+* [PlayerPrefs Utilities](http://sabresaurus.com/docs/playerprefs-editor-utilities-documentation/)
 
 
 ## Base game
