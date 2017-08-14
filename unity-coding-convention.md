@@ -159,6 +159,21 @@ WWW.EscapeURL
 GetInstanceID
 ```
 
+Use typecasting instead of `as` operator since it will throw exception instead of silently returning null.
+
+__BAD:__
+
+```c#
+go as MyType
+```
+
+__GOOD:__
+
+```c#
+(MyType)go
+```
+
+
 ## Declarations
 
 ### Access Level Modifiers
