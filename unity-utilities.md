@@ -117,6 +117,8 @@ This guide contains some common utilities and helpers for Unity. It will also li
 ## PlayerPrefs
 * [PlayerPrefs Utilities](http://sabresaurus.com/docs/playerprefs-editor-utilities-documentation/)
 
+## Tags
+* [MultiTags](https://www.assetstore.unity3d.com/en/#!/content/21475)
 
 ## Base game
 * [Good Unity base game structure](https://github.com/kwnetzwelt/ugb-source)

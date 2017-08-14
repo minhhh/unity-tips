@@ -213,7 +213,7 @@ Indentation is 4 spaces. Never tabs.
 
 Indentation for line wraps should use 4 spaces too.
 
-DO NOT align arguments at the far right side of the line.
+DO NOT align arguments at the far right side of the line. It's not a sustainable way since it depends on the left part of the statement such as method names, variables names
 
 __BAD:__
 
@@ -226,6 +226,10 @@ public int AMethod (int firstArgument,
 
 int result = Calculate (firstArgument,
                         secondArgument);
+
+int result = Calculate (
+    firstArgument,
+    secondArgument);
 ```
 
 __GOOD:__
@@ -238,14 +242,16 @@ public int AMethod (
 public int AMethod (
     int firstArgument, int secondArgument)
 
-int result = Calculate (
-    firstArgument,
-    secondArgument);
+int result =
+    Calculate (
+        firstArgument,
+        secondArgument);
 
 int result =
     Calculate (
-    firstArgument,
-    secondArgument);
+        firstArgument,
+        secondArgument
+    );
 ```
 
 ### Line Length
