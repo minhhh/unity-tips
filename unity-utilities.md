@@ -87,9 +87,6 @@ This guide contains some common utilities and helpers for Unity. It will also li
 ## Image processing
 * [unity-texture-dither](https://github.com/minhhh/unity-texture-dither)
 
-## Persist / Save / Load Data
-* [Best Practices in Persisting Player Data on Mobile](http://minhhh.github.io/posts/best-practices-in-persisting-player-data-on-mobile)
-
 ## Console
 * [Console Enhanced Free](https://www.assetstore.unity3d.com/en/#!/content/42381) is an improved Editor console for Unity
 
