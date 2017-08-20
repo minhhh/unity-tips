@@ -218,6 +218,10 @@ __GOOD:__
 IClippable
 ```
 
+### Properties
+
+Use `get; private set;` or `get; protected set;` properties so that you don't have to create private variable with getter.
+
 ## Spacing
 
 ### Indentation
